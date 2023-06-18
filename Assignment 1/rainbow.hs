@@ -4,6 +4,7 @@ Jiadi Luo
 301354107
 -}
 
+-- Imports
 import RainbowAssign
 import qualified Data.Map as Map
 import Data.Maybe
