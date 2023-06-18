@@ -9,7 +9,7 @@ import qualified Data.Map as Map
 import Data.Maybe
 
 
--- Parameters for the rainbow table.
+-- Parameters for the rainbow table
 pwLength, nLetters, width, height :: Int
 filename :: FilePath
 pwLength = 8            -- length of each password
@@ -19,7 +19,7 @@ height = 1000           -- number of "rows" in the table
 filename = "table.txt"  -- filename to store the table
 
 
--- pwReduce: maps a hash value to an arbitrary password.
+-- pwReduce: maps a hash value to an arbitrary password
 pwReduce :: Hash -> Passwd
 pwReduce hash = map toLetter $ reverse $ pwReduceHelper $ fromEnum hash
     where
@@ -27,7 +27,7 @@ pwReduce hash = map toLetter $ reverse $ pwReduceHelper $ fromEnum hash
         pwReduceHelper hash' = take pwLength $ mod hash' nLetters : pwReduceHelper (div hash' nLetters)
 
 
--- rainbowTable: generates a rainbow table, given a list of initial passwords.
+-- rainbowTable: generates a rainbow table, given a list of initial passwords
 rainbowTable :: Int -> [Passwd] -> Map.Map Hash Passwd
 rainbowTable widthLength passwords = Map.fromList [(x, y) | (x, y) <- rainbowTableWrapper]
     where
@@ -40,7 +40,7 @@ rainbowTable widthLength passwords = Map.fromList [(x, y) | (x, y) <- rainbowTab
             | otherwise = rainbowTableHelper (widthLength'-1) (map pwReduce (map pwHash passwords'))
 
 
--- findPassword: reverses a hash to the corresponding password, if possible.
+-- findPassword: reverses a hash to the corresponding password, if possible
 findPassword :: Map.Map Hash Passwd -> Int -> Hash -> Maybe Passwd
 findPassword table widthLength hash = do
     correctPassword <- findCorrectPassword (findKeyInTable table widthLength hash) widthLength hash
