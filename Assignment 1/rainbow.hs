@@ -68,29 +68,29 @@ findCorrectPassword (Just keyInTable : xs) widthLength hash =
             | otherwise = findCorrectPasswordHelper (pwReduce (pwHash keyInTable')) (widthLength' - 1) hash'
 
 
--- Testing
-generateTable :: IO ()
-generateTable = do
-    table <- buildTable rainbowTable nLetters pwLength width height
-    writeTable table filename
+-- -- Testing
+-- generateTable :: IO ()
+-- generateTable = do
+--     table <- buildTable rainbowTable nLetters pwLength width height
+--     writeTable table filename
 
-test1 :: IO (Maybe Passwd)
-test1 = do
-    table <- readTable filename
-    return (Map.lookup 0 table)
+-- test1 :: IO (Maybe Passwd)
+-- test1 = do
+--     table <- readTable filename
+--     return (Map.lookup 0 table)
 
-test2 :: Int -> IO ([Passwd], Int)
-test2 n = do
-    table <- readTable filename
-    pws <- randomPasswords nLetters pwLength n
-    let hs = map pwHash pws
-    let result = Data.Maybe.mapMaybe (findPassword table width) hs
-    return (result, length result)
+-- test2 :: Int -> IO ([Passwd], Int)
+-- test2 n = do
+--     table <- readTable filename
+--     pws <- randomPasswords nLetters pwLength n
+--     let hs = map pwHash pws
+--     let result = Data.Maybe.mapMaybe (findPassword table width) hs
+--     return (result, length result)
 
-main :: IO ()
-main = do
-    generateTable
-    res1 <- test1
-    print res1
-    res2 <- test2 10000
-    print res2
+-- main :: IO ()
+-- main = do
+--     generateTable
+--     res1 <- test1
+--     print res1
+--     res2 <- test2 10000
+--     print res2
