@@ -1,0 +1,57 @@
+CMPT 383 Exercise 6
+Jiadi Luo
+301354107
+
+Language Description #1
+1. C++11
+2. C++11 has different paradigms including imperative programming, object-oriented, and generic programming.
+3. C++11 is a compiled language using the tool GCC.
+4. C++11 is a statically typed language that the complier knows a variable or value’s type when it compiles the program, and it is primarily static binding, dynamic binding can be achieved by virtual functions.
+5. C++11 is strongly typed as every value in C++11 has a single well-defined type which enforces strict type checking.
+6. C++11 is manual memory management where the programmer needs to allocate the objects on the heap with new and de-allocate them via delete.
+7. a. C++11 has first-class functions which are achieved by using lambda expressions, where a function can be defined inline. 
+        For example: 
+        void print(const std::function<void()> &func) {
+            func();
+        }
+        void msg() {
+            std::cout << "print some message here" << std::endl;
+        }
+        int main() {
+            printMessage([]() { helloWorld(); }); => will print "print some message here"
+            return 0;
+        }
+    b. C++11 has closures, which means there are functions with free variables bound to the scope where it was created.
+        An example from our slide:
+        #include <functional>
+        std::function<bool (int)> divisibility_checker(int n) {
+            auto div_check = [n](int m) { return m%n == 0; };
+            return div_check;
+        }
+8. C++11 has some third-party libraries like Intel Threading Building Blocks (TBB) and OpenMP that can support parallel programming via parallel loops, task-based parallelism, etc.
+    References: https://www.geeksforgeeks.org/introduction-to-parallel-programming-with-openmp-in-cpp/
+                https://chryswoods.com/parallel_c++/part2.html
+
+
+Language Description #2
+1. Python
+2. Python has different paradigms including imperative programming, object-oriented, and functional programming.
+3. Python is a interpreted language which the source code of a Python program is converted into bytecode that is then executed by the Python virtual machine.
+    Reference: https://www.sciencedirect.com/topics/computer-science/interpreted-language#:~:text=Python%20is%20an%20interpreted%20language,by%20the%20Python%20virtual%20machine.
+4. Python is a dynamically typed language in which variable types are determined at runtime and don't need to be declared explicitly. It is dynamic binding which defers the determination of the actual method to invoke an object until program execution time.
+    Reference: https://www.oreilly.com/library/view/programming-in-objective-c/9780133756937/ch09.html#:~:text=Dynamic%20binding%20defers%20the%20determination,object%20until%20program%20execution%20time.
+5. Python is strongly typed as every value in Python has a single well-defined type which enforces strict type checking.
+6. Python is garbage collected where it looks for objects on the heap that can no longer be accessed amd frees them.
+7. a. Python supports first-class functions.
+        For example: 
+        def add(a, b):
+            return a + b
+        test = add
+        print(test(1,2)) => will print 3
+    b. Python has closures, which means there are functions with free variables bound to the scope where it was created.
+        An example from our slide:
+        auto is_even = divisibility_checker(2);
+        cout << is_even(7) << '\n';
+8. Python has some modules (like threading and multiprocessing) that can support concurrent programming, and some third-party libraries (like ray and joblib) that can support parallel programming.
+    Reference: https://towardsdatascience.com/multithreading-multiprocessing-python-180d0975ab29
+               https://www.infoworld.com/article/3542595/6-python-libraries-for-parallel-processing.html
