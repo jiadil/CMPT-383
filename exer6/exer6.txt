@@ -6,7 +6,7 @@ Language Description #1
 1. C++11
 2. C++11 has different paradigms including imperative programming, object-oriented, and generic programming.
 3. C++11 is a compiled language using the tool GCC.
-4. C++11 is a statically typed language that the complier knows a variable or value’s type when it compiles the program, and it is primarily static binding, dynamic binding can be achieved by virtual functions.
+4. C++11 is a statically typed language that the complier knows a variable or value’s type when it compiles the program, and it is static binding.
 5. C++11 is strongly typed as every value in C++11 has a single well-defined type which enforces strict type checking.
 6. C++11 is manual memory management where the programmer needs to allocate the objects on the heap with new and de-allocate them via delete.
 7. a. C++11 has first-class functions which are achieved by using lambda expressions, where a function can be defined inline. 
