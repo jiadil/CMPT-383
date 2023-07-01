@@ -6,35 +6,27 @@ Language Description #1
 1. C++11
 2. C++11 has different paradigms including imperative programming, object-oriented, and generic programming.
 3. C++11 is a compiled language using the tool GCC.
-4. C++11 is a statically typed language that the complier knows a variable or value’s type when it compiles the program, and it is static binding.
+4. C++11 is a statically typed language that the complier knows a variable or value’s type when it compiles the program, and it is primarily static binding, dynamic binding can be achieved by virtual functions.
+    Reference: https://www.codingninjas.com/studio/library/dynamic-binding-in-cpp#:~:text=Q.-,Is%20dynamic%20binding%20achieved%20using%20function%3F,be%20used%20to%20override%20them.
 5. C++11 is strongly typed as every value in C++11 has a single well-defined type which enforces strict type checking.
 6. C++11 is manual memory management where the programmer needs to allocate the objects on the heap with new and de-allocate them via delete.
-7. a. C++11 has first-class functions which are achieved by using lambda expressions, where a function can be defined inline. 
-        For example: 
-        void print(const std::function<void()> &func) {
-            func();
-        }
-        void msg() {
-            std::cout << "print some message here" << std::endl;
-        }
-        int main() {
-            printMessage([]() { helloWorld(); }); => will print "print some message here"
-            return 0;
-        }
-    b. C++11 has closures, which means there are functions with free variables bound to the scope where it was created.
+7. a. C++11 has first-class functions which are achieved by using lambda expressions, where a function can be defined inline.
+    Reference: https://www.modernescpp.com/index.php/first-class-functions
+   b. C++11 has closures, which means there are functions with free variables bound to the scope where it was created.
         An example from our slide:
         #include <functional>
         std::function<bool (int)> divisibility_checker(int n) {
             auto div_check = [n](int m) { return m%n == 0; };
             return div_check;
         }
-8. C++11 has some third-party libraries like Intel Threading Building Blocks (TBB) and OpenMP that can support parallel programming via parallel loops, task-based parallelism, etc.
-    References: https://www.geeksforgeeks.org/introduction-to-parallel-programming-with-openmp-in-cpp/
+8. C++11 has some features like standard threading library (thread and mutex), and some third-party libraries like Intel Threading Building Blocks (TBB) that can support parallel programming via parallel loops, task-based parallelism, etc.
+    References: https://www.classes.cs.uchicago.edu/archive/2013/spring/12300-1/labs/lab6/
+                https://www.geeksforgeeks.org/introduction-to-parallel-programming-with-openmp-in-cpp/
                 https://chryswoods.com/parallel_c++/part2.html
 
 
 Language Description #2
-1. Python
+1. Python 3
 2. Python has different paradigms including imperative programming, object-oriented, and functional programming.
 3. Python is a interpreted language which the source code of a Python program is converted into bytecode that is then executed by the Python virtual machine.
     Reference: https://www.sciencedirect.com/topics/computer-science/interpreted-language#:~:text=Python%20is%20an%20interpreted%20language,by%20the%20Python%20virtual%20machine.
@@ -48,7 +40,7 @@ Language Description #2
             return a + b
         test = add
         print(test(1,2)) => will print 3
-    b. Python has closures, which means there are functions with free variables bound to the scope where it was created.
+   b. Python has closures, which means there are functions with free variables bound to the scope where it was created.
         An example from our slide:
         auto is_even = divisibility_checker(2);
         cout << is_even(7) << '\n';
