@@ -12,7 +12,7 @@ Language Description #1
 6. C++11 is manual memory management where the programmer needs to allocate the objects on the heap with new and de-allocate them via delete.
 7. a. C++11 has first-class functions which are achieved by using lambda expressions, where a function can be defined inline.
     Reference: https://www.modernescpp.com/index.php/first-class-functions
-   b. C++11 has closures, which means there are functions with free variables bound to the scope where it was created.
+   b. C++11 has closures that are achieved by using lambda expressions, which means there are functions with free variables bound to the scope where it was created.
         An example from our slide:
         #include <functional>
         std::function<bool (int)> divisibility_checker(int n) {
