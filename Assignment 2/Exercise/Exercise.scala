@@ -42,7 +42,7 @@ object Exercise {
         return triples.toList
     }
 
-    /******************** Exercise 3: mergesort (and thus probably also merge), isPrimeDay, and isFriday ********************/
+    /******************** Exercise 3: mergeSort (and thus probably also merge), isPrimeDay, and isFriday ********************/
     // merge
     def merge(a: List[Int], b: List[Int]): List[Int] = {
         if (a.isEmpty) {
@@ -56,13 +56,13 @@ object Exercise {
         }
     }
 
-    // mergesort
-    def mergesort(a: List[Int]): List[Int] = {
+    // mergeSort
+    def mergeSort(a: List[Int]): List[Int] = {
         if (a.length <= 1) {
             return a
         } else {
             val (left, right) = a.splitAt(a.length / 2)
-            return merge(mergesort(left), mergesort(right))
+            return merge(mergeSort(left), mergeSort(right))
         }
     }
 
@@ -112,10 +112,11 @@ object Exercise {
         println("merge(List(4, 5, 7, 8), List(1, 2, 3, 6, 9)) = " + merge(List(4, 5, 7, 8), List(1, 2, 3, 6, 9)))
 
         // test merge sort
-        println("mergesort(List(1, 9, 3, 2, 7, 6, 4, 8, 5)) = " + mergesort(List(1, 9, 3, 2, 7, 6, 4, 8, 5)))
-        println("mergesort(List(6, 2, 4, 8, 9, 5, 3, 1, 7, 10)) = " + mergesort(List(6, 2, 4, 8, 9, 5, 3, 1, 7, 10)))
-        println("mergesort(List()) = " + mergesort(List()))
-        println("mergesort(List(4)) = " + mergesort(List(4)))
+        println("mergeSort(List(1, 9, 3, 2, 7, 6, 4, 8, 5)) = " + mergeSort(List(1, 9, 3, 2, 7, 6, 4, 8, 5)))
+        println("mergeSort(List(6, 2, 4, 8, 9, 5, 3, 1, 7, 10)) = " + mergeSort(List(6, 2, 4, 8, 9, 5, 3, 1, 7, 10)))
+        println("mergeSort(List()) = " + mergeSort(List()))
+        println("mergeSort(List(4)) = " + mergeSort(List(4)))
+        println("mergeSort(List(4, 3)) = " + mergeSort(List(4, 3)))
 
         // test isFriday
         println("isFriday(2018, 5, 17) = " + isFriday(2018, 5, 17))
