@@ -1,0 +1,30 @@
+1. What is the receiver argument it takes? In other words, does it move, borrow, or mutably-borrow self?
+2. What does it return? (In each case, it returns something that implements Iterator.)
+3. What type of values are produced by the iterator, i.e. the v if we do “for v in vec.this_method()” or similar?
+4. Give a brief sentence describing why it's necessary or what it would be used for.
+
+.into_iter()
+1. Move self.
+2. It returns an iterator over its value that is the type of the owned input element.
+3. The type of values produced type 'T' that depends on the type of the owned input element.
+4. It iterates over the element by taking its ownership which enable us to move it to another operation.
+
+
+.iter()
+1. Borrows self.
+2. It returns an iterator that produces shared references to its item that is the type of the owned input element.
+3. The type of values produced type 'T' that depends on the type of the owned input element.
+4. It iterates over the element by reference without taking the ownership or modifying it.
+
+.iter_mut()
+1. Mutably borrows self.
+2. It returns returns an iterator that produces mutable references to its item that is the type of the owned input element.
+3. The type of values produced mutable reference '&mut T' that depends on the type of the owned input element.
+4. It iterates over the element with mutable access but without taking the ownership, allowing us to modify the element.
+
+
+.drain(..)
+1. Move self.
+2. It returns a draining iterator that is the type of the owned input element.
+3. The type of values produced type 'T' that depends on the type of the owned input element.
+4. It can remove elements while iterating over them, and at the same time collect the elements to be removed, allowing us to remove/remove elements from the vector without shifting them.
