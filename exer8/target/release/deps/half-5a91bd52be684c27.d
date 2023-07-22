@@ -1,0 +1,12 @@
+/Users/jiadil/Desktop/CMPT-383/exer8/target/release/deps/half-5a91bd52be684c27.rmeta: /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/lib.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/bfloat.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/bfloat/convert.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/binary16.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/binary16/convert.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/slice.rs
+
+/Users/jiadil/Desktop/CMPT-383/exer8/target/release/deps/libhalf-5a91bd52be684c27.rlib: /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/lib.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/bfloat.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/bfloat/convert.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/binary16.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/binary16/convert.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/slice.rs
+
+/Users/jiadil/Desktop/CMPT-383/exer8/target/release/deps/half-5a91bd52be684c27.d: /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/lib.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/bfloat.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/bfloat/convert.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/binary16.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/binary16/convert.rs /Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/slice.rs
+
+/Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/lib.rs:
+/Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/bfloat.rs:
+/Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/bfloat/convert.rs:
+/Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/binary16.rs:
+/Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/binary16/convert.rs:
+/Users/jiadil/.cargo/registry/src/index.crates.io-6f17d22bba15001f/half-1.8.2/src/slice.rs:

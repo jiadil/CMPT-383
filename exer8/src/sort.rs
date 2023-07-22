@@ -1,6 +1,6 @@
 use rand::Rng;
 
-const INSERTION_SORT_CUTOFF: usize = 0;
+const INSERTION_SORT_CUTOFF: usize = 50;
 
 /// Sort v[left..=right] in-place with insertion sort.
 pub fn insertion_sort<T: Copy + Ord>(v: &mut Vec<T>, left: usize, right: usize) {
@@ -59,15 +59,17 @@ pub fn quicksort_partial<T: Copy + Ord>(v: &mut Vec<T>, left: usize, right: usiz
         }
     
         let pivot = partition(v, left, right);
-        quicksort_partial(v, left, pivot);
+        if pivot > 0 {
+            quicksort_partial(v, left, pivot - 1);
+        }
         quicksort_partial(v, pivot + 1, right);
     }
 }
 
 pub fn quicksort<T: Copy + Ord>(v: &mut Vec<T>) {
-    let len = v.len();
-    if len <= 1 {
-        return;
-    }
-    quicksort_partial(v, 0, len - 1);
+    // let len = v.len();
+    // if v.len() <= 1 {
+    //     return;
+    // }
+    quicksort_partial(v, 0, v.len() - 1);
 }
