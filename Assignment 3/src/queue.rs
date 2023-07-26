@@ -16,19 +16,61 @@ pub struct WorkQueue<TaskType: 'static + Task + Send> {
 
 impl<TaskType: 'static + Task + Send> WorkQueue<TaskType> {
     pub fn new(n_workers: usize) -> WorkQueue<TaskType> {
-        todo!(); // create the channels; start the worker threads; record their JoinHandles
+        // TODO: create the channels; start the worker threads; record their JoinHandles
+        let (sender_tasks, receiver_tasks) = spmc::channel();
+        let (sender_output, receiver_output) = mpsc::channel();
+
+        let mut workers = Vec::new();
+
+        for _ in 0..n_workers {
+            let snd = sender_output.clone();
+            let rcv = receiver_tasks.clone();
+            // create a new thread and push it to the vector
+            workers.push(thread::spawn(move || {
+                WorkQueue::<TaskType>::run(rcv, snd);
+            }));
+        }
+
+        WorkQueue {
+            send_tasks: Some(sender_tasks),
+            recv_tasks: receiver_tasks,
+            recv_output: receiver_output,
+            workers: workers,
+        }
     }
 
     fn run(recv_tasks: spmc::Receiver<TaskType>, send_output: mpsc::Sender<TaskType::Output>) {
         // TODO: the main logic for a worker thread
         loop {
             let task_result = recv_tasks.recv();
-            todo!(); // task_result will be Err() if the spmc::Sender has been destroyed and no more messages can be received here
+            // task_result will be Err() if the spmc::Sender has been destroyed and no more messages can be received here
+            match task_result {
+                Ok(task) => {
+                    let result = task.run();
+                    match result {
+                        Some(output) => {
+                            send_output.send(output).unwrap();
+                        }
+                        None => {}
+                    }
+                }
+                Err(_) => {
+                    break;
+                }
+            }
         }
     }
 
     pub fn enqueue(&mut self, t: TaskType) -> Result<(), spmc::SendError<TaskType>> {
-        todo!(); // send this task to a worker
+        // TODO: send this task to a worker
+        match self.send_tasks {
+            Some(ref mut sender) => {
+                return sender.send(t);
+            }
+            None => {
+                return Err(spmc::SendError(t));
+            }
+        }
     }
 
     // Helper methods that let you receive results in various ways
@@ -54,7 +96,19 @@ impl<TaskType: 'static + Task + Send> WorkQueue<TaskType> {
         // Destroy the spmc::Sender so everybody knows no more tasks are incoming;
         // drain any pending tasks in the queue; wait for each worker thread to finish.
         // HINT: Vec.drain(..)
-        todo!(); //
+        self.send_tasks = None;
+        loop {
+            match self.recv_tasks.recv() {
+                Ok(_) => {}
+                Err(_) => {
+                    break;
+                }
+            }
+        }
+
+        for worker in self.workers.drain(..) {
+            worker.join().unwrap();
+        }
     }
 }
 
