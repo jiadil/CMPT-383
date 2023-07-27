@@ -1,0 +1,1 @@
+/Users/jiadil/Desktop/CMPT-383/exer10/target/debug/libexer10.rlib: /Users/jiadil/Desktop/CMPT-383/exer10/src/dynamic.rs /Users/jiadil/Desktop/CMPT-383/exer10/src/files.rs /Users/jiadil/Desktop/CMPT-383/exer10/src/lib.rs /Users/jiadil/Desktop/CMPT-383/exer10/src/tests.rs
