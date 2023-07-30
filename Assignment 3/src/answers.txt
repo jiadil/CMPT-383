@@ -1,0 +1,12 @@
+1. In the Task trait definition, the type Output is specified as Send. What does this do, and why is this necessary?
+This ensures the Output is being sent safely between threads, as Send is important for enabling concurrent execution of tasks across multiple worker threads.
+
+2. The hint for .shutdown suggests using a vector's .drain method. Why can we not iterate with .iter() like usual?
+Because .drain() allows us to both iterate over the elements and remove them from the vector while iterating. 
+This is important because this allows us to update the hash by indicating that the cell is empty after removing elements. 
+On the other hand, .iter() would just read the hash of the value being moved without updating it, leading to potential issues when processing remaining tasks in the work queue.
+
+3. Why must we .clone the Block when we put it in the Arc? Why not Arc<&Block>?
+Using Arc<&Block> would lead to lifetime issues because Arc requires ownership to manage the data's reference count and ensure proper memory management. 
+Additionally, Arc<&Block> could introduce potential data races due to shared references without proper synchronization. 
+However, .clone() creates an owned instance inside the Arc, ensuring correct ownership and safe concurrent access from multiple threads.

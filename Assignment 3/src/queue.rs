@@ -93,7 +93,7 @@ impl<TaskType: 'static + Task + Send> WorkQueue<TaskType> {
     }
 
     pub fn shutdown(&mut self) {
-        // Destroy the spmc::Sender so everybody knows no more tasks are incoming;
+        // TODO: Destroy the spmc::Sender so everybody knows no more tasks are incoming;
         // drain any pending tasks in the queue; wait for each worker thread to finish.
         // HINT: Vec.drain(..)
         self.send_tasks = None;
